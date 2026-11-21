@@ -1,0 +1,113 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Registrations | EventHub</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .booking-section {
+            max-width: 750px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        .booking-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .booking-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .booking-box input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            margin: 12px 0;
+        }
+
+        .booking-box button {
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .booking-card {
+            background: #f5f3ff;
+            padding: 20px;
+            border-radius: 9px;
+            margin-top: 18px;
+        }
+
+        .booking-card h3 {
+            color: #49328c;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>Event<span>Hub.</span></h2>
+    <a href="/">Home</a>
+</nav>
+
+<section class="booking-section">
+
+    <div class="booking-box">
+        <h2>My Registrations</h2>
+        <p>Enter your registered email to view your events.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="email" name="email"
+                   placeholder="Enter your email address" required>
+
+            <button type="submit">Find Registrations</button>
+        </form>
+
+        {% if registrations %}
+            <h2 style="margin-top:30px;">Your Registered Events</h2>
+
+            {% for registration in registrations %}
+                <div class="booking-card">
+                    <h3>{{ registration.event.name }}</h3>
+                    <p><strong>Name:</strong> {{ registration.name }}</p>
+                    <p><strong>Email:</strong> {{ registration.email }}</p>
+                    <p><strong>Date:</strong> {{ registration.event.date }}</p>
+                    <p><strong>Venue:</strong> {{ registration.event.venue }}</p>
+                </div>
+            {% endfor %}
+
+        {% elif request.method == 'POST' %}
+            <p style="margin-top:25px; color:#dc2626;">
+                No registrations found for this email.
+            </p>
+        {% endif %}
+
+        <br><br>
+        <a href="/">← Back to Home</a>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 EventHub. College Event Management System.</p>
+</footer>
+
+</body>
+</html>
+

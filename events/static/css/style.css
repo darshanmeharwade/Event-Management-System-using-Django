@@ -1,0 +1,191 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fc;
+    color: #20213a;
+}
+
+.navbar {
+    background: #17172f;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 span {
+    color: #a78bfa;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+}
+
+.navbar a:hover {
+    color: #a78bfa;
+}
+
+.hero {
+    min-height: 390px;
+    background: linear-gradient(120deg, #17172f, #49328c);
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tagline, .section-tag {
+    color: #a78bfa;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero-content > p:not(.tagline) {
+    color: #dedcf0;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.hero-btn, .register-btn {
+    display: inline-block;
+    background: #8b5cf6;
+    color: white;
+    text-decoration: none;
+    padding: 13px 23px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.hero-btn:hover, .register-btn:hover {
+    background: #7041d5;
+}
+
+.events-section {
+    padding: 65px 8%;
+    text-align: center;
+}
+
+.events-section h2 {
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+.section-description {
+    color: #77778b;
+    margin-bottom: 35px;
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.event-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    border: 1px solid #eeeaf8;
+    transition: transform 0.2s;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+}
+
+.event-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.event-info h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.event-info > p {
+    color: #77778b;
+    line-height: 1.6;
+    min-height: 75px;
+}
+
+.event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #55556a;
+}
+
+.register-btn {
+    font-size: 14px;
+}
+
+.about {
+    background: #eae5ff;
+    padding: 45px 15px;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 12px;
+}
+
+.about p {
+    color: #626078;
+}
+
+footer {
+    background: #17172f;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .navbar a {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .events-section {
+        padding: 45px 5%;
+    }
+}
